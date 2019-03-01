@@ -8,10 +8,16 @@
 
 <ion-content>
   <ion-fab vertical="bottom" horizontal="center" slot="fixed">
-    <ion-fab-button (click)="takePicture()">
+    <ion-fab-button (click)="photoService.takePicture()">
       <ion-icon name="camera"></ion-icon>
     </ion-fab-button>
   </ion-fab>
 
-  <img *ngIf="currentImg" [src]="currentImg">
+  <ion-grid>
+    <ion-row>
+      <ion-col size='6' *ngFor="let photo of photoService.photos">
+        <img [src]="photo.data" >
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
